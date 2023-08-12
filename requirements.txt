@@ -1,0 +1,13 @@
+langchain
+chromadb==0.3.29
+unstructured[pdf]
+pdfminer.six
+poppler-utils
+sentence_transformers
+gpt4all
+clickhouse-connect==0.5.22
+atlassian-python-api
+python-dotenv
+beautifulsoup4
+markdownify
+streamlit
