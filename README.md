@@ -12,6 +12,14 @@ Available commands:
   rebuild-db   Creates a new vector store and loads Confluence pages
   append-db    Appends Confluence pages to existing vector store
   interactive  Runs in interactive mode
-```
+```  
 Configured via environment variables; see [.env.example](./.env.example).  
-TODO add screenshot
+
+![example](sample.png)
+
+---
+
+Pending / TODO:
+* Broken concurrency; move to langhcain ts
+* Tweak text splitting and chunk sizes
+* Test MultiQueryRetriever
