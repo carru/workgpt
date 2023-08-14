@@ -31,6 +31,13 @@ class WorkGPT:
             chain = RetrievalQA.from_chain_type(llm=self.llm, retriever=retriever, return_source_documents=True)
             return chain(query)
 
+    def get_sources(self, query, sources=4):
+        if len(query):
+            logging.info(f"Getting {sources} sources for query: {query}")
+            retriever = self.vectorstore.as_retriever(search_kwargs={"k": sources})
+            docs = retriever.get_relevant_documents(query)
+            return {"source_documents": docs}
+
 def interactive():
     workgpt = WorkGPT()
 

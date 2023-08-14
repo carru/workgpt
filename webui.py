@@ -28,7 +28,7 @@ with st.form('myform'):
     query_text = st.text_area('Enter your question:')
     col1, col2 = st.columns(2)
     with col1:
-        k_docs = st.number_input('How many sources to search', 1, None, 4, 1)
+        k_docs = int(st.number_input('How many sources to search', 1, None, 4, 1))
     with col2:
         generate = st.form_submit_button('Generate answer')
         search = st.form_submit_button('Search only')
@@ -36,11 +36,11 @@ with st.form('myform'):
 if len(query_text):
     with st.spinner('Thinking...'):
         if generate:
-            response = workgpt.get_answer(query_text, int(k_docs))
+            response = workgpt.get_answer(query_text, k_docs)
             result.append(response)
         elif search:
-            # TODO
-            pass
+            response = workgpt.get_sources(query_text, k_docs)
+            result.append(response)            
 
 if len(result):
     st.subheader('Answer:')
