@@ -36,7 +36,7 @@ class WorkGPT:
             logging.info(f"Getting {sources} sources for query: {query}")
             retriever = self.vectorstore.as_retriever(search_kwargs={"k": sources})
             docs = retriever.get_relevant_documents(query)
-            return {"source_documents": docs}
+            return {"result": None, "source_documents": docs}
 
 def interactive():
     workgpt = WorkGPT()
